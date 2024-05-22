@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Layout from '../src/components/Layout';
 import { Button } from '@/components/ui/button';
-import { ArrowBigDown, Globe, Globe2, Globe2Icon, Headset, ShieldCheck, VerifiedIcon } from 'lucide-react';
+import { Globe2, Headset, ShieldCheck } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const router = useRouter();
@@ -45,13 +45,13 @@ const HomePage: React.FC = () => {
             <Button variant='secondary' className='mt-6 text-xl text-dark-text bg-dark-primary dark'>Start Browsing Popular Accounts &rarr;</Button>
           </div>
         </div>
-        <section className='border-t border-dark-primary/80 bg-dark-primary/40 flex-1'>
+        <section className='border-t border-dark-primary/80 bg-dark-lighterBg flex-1'>
           <div className='mt-10 mb-10 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0'>
             {perks.map((perk) => (
               <div key={perk.name} className='text-center md:flex md:items-start md:text:left lg:block lg:text-center'>
                 <div className='md:flex-shrink-0 flex justify-center'>
-                  <div className='h-32 w-32 flex items-center justify-center rounded-full bg-white text-dark-primary'>
-                    {<perk.Icon className='w-1/3 h-1/3'/>}
+                  <div className='h-32 w-32 flex items-center justify-center rounded-full bg-dark-text text-dark-primary'>
+                    {<perk.Icon className='w-2/3 h-2/3'/>}
                   </div>
                 </div>
                 <div className='mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6 pl-10 pr-10'>

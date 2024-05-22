@@ -40,6 +40,7 @@ module.exports = {
         },
         dark: {
           background: '#000000',
+          lighterBg: '#0d0d0d',
           text: '#FFFFFF',
           secondaryText: '#BBBBBB',
           primary: '#303030',
@@ -102,5 +103,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
 }
