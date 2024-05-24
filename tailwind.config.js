@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: theme => ({
+        'img': "url('/public/images/loginBg.jpg')",
+      }),
       fontSize: {
         'sm': '0.875rem', // 14px
         'base': '1rem', // 16px
@@ -40,11 +43,12 @@ module.exports = {
         },
         dark: {
           background: '#000000',
-          lighterBg: '#0d0d0d',
+          lighterBg: '#101010',
           text: '#FFFFFF',
           secondaryText: '#BBBBBB',
           primary: '#303030',
           secondary: '#BB86FC',
+          hint: '#777777',
           accent: '#63B3ED',
           border: '#2D3748',
         },
