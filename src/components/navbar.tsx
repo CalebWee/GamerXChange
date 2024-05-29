@@ -1,17 +1,21 @@
-import { Gamepad2 } from 'lucide-react';
-import React, { useState } from 'react';
+import { Gamepad2, Icon, UserCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Navbar: React.FC = () => {
     const router = useRouter();
-    
-    const perk = {
-        Icon: Gamepad2,
-    };
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Check if the token is present in localStorage
+        const token = localStorage.getItem('token');
+        setIsLoggedIn(!!token); // Set isLoggedIn to true if the token exists
+    }, []);
 
     const navItems = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
+        { href: '/shop', label: 'Shop' },
         { href: '/services', label: 'Services' },
         { href: '/authentication/userLogin', label: 'Sign In' },
     ];
@@ -21,29 +25,33 @@ const Navbar: React.FC = () => {
             <nav className="bg-white border-gray-200 dark:bg-dark-lighterBg">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <perk.Icon className='w-8 h-8' />
+                        <Image src="/images/proLogo.webp" alt='logo' width={60} height={60}></Image>
                         <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">GamerXChange</span>
                     </a>
                     <div className="flex md:order-2">
                         <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-lg p-2.5 me-1">
                             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                             <span className="sr-only">Search</span>
                         </button>
                         <div className="relative hidden md:block">
                             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                                 <span className="sr-only">Search icon</span>
                             </div>
                             <input type="text" id="search-navbar" className="block w-full p-2 ps-10 texlg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-dark-secondary focus:border-dark-secondary dark:bg-dark-primary dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-dark-secondary dark:focus:border-dark-secondary" placeholder="Search..." />
                         </div>
+                        
+                            <a href="/user/profile" className="ml-4">
+                                <UserCircle2 className="w-11 h-11 text-gray-900 dark:text-white" />
+                            </a>
                         <button data-collapse-toggle="navbar-search" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center texlg text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
                             <span className="sr-only">Open main menu</span>
                             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                             </svg>
                         </button>
                     </div>
@@ -51,10 +59,9 @@ const Navbar: React.FC = () => {
                         <div className="relative mt-3 md:hidden">
                             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
-                            <input type="text" id="search-navbar" className="block w-full p-2 ps-10 texlg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-dark-secondary focus:border-dark-secondary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-dark-secondary dark:focus:border-dark-secondary" placeholder="Search..." />
                         </div>
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-dark-lighterBg dark:border-gray-700">
                             {navItems.map((item) => (

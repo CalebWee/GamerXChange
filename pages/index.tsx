@@ -1,15 +1,19 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../src/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Globe2, Headset, ShieldCheck } from 'lucide-react';
+import Axios from 'axios';
+import withAuth from '@/components/withAuth';
 
 const HomePage: React.FC = () => {
   const router = useRouter();
 
-  const navigateToLogin = () => {
-    router.push('/authentication/userLogin');
+  const routeToShop = async () => {
+    console.log("fafw")
+    router.push("/shop")
   };
+
 
   const perks = [
     {
@@ -34,15 +38,9 @@ const HomePage: React.FC = () => {
       <div className='flex flex-col'>
         <div className="flex justify-center flex-1">
           <div className="py-20 mx-auto text-center flex flex-col items-center max-w-4xl">
-            {/* <button
-              onClick={navigateToLogin}
-              className="text-2xl px-4 py-2 bg-light-primary text-light-text dark:text-dark-text dark:bg-dark-primary rounded"
-            >
-              Sign In
-            </button> */}
             <p className="text-6xl">From Gaming to Social Media, Marketplace for Hassle-Free <br/><span className="text-dark-secondary">Account Trading</span></p>
             <p className="mt-6 text-3xl text-dark-secondaryText">Reliable, secure, and user-friendly, Join a community of verified buyers and sellers. Trust and transparency guaranteed.</p><br />
-            <Button variant='secondary' className='mt-6 text-xl text-dark-text bg-dark-primary dark'>Start Browsing Popular Accounts &rarr;</Button>
+            <Button onClick={routeToShop} variant='secondary' className='mt-6 text-xl text-dark-text bg-dark-primary dark'>Start Browsing Popular Accounts &rarr;</Button>
           </div>
         </div>
         <section className='border-t border-dark-primary/80 bg-dark-lighterBg flex-1'>

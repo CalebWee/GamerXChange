@@ -1,5 +1,5 @@
-// Layout.tsx
-
+import Toast from '../components/ui/toast';
+import { showToast } from '../components/ui/toast';
 import React, { useState, useEffect, ReactNode } from 'react';
 import { Button } from './ui/button';
 import Navbar from './navbar';
@@ -41,6 +41,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         {isDarkMode ? 'Light' : 'Dark'} Mode
       </Button>
+      <Toast/>
       {React.cloneElement(children as React.ReactElement, { isdarkmode: isDarkMode.toString(), toggledarkmode: toggleDarkMode.toString() })}
     </div>
   );

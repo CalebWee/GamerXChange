@@ -76,3 +76,39 @@
 body{
   font-family: serif;
 }
+
+.custom-toast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.custom-toast-success {
+  background-color: #38a169; /* Green */
+  color: white;
+}
+
+.custom-toast-error {
+  background-color: #e53e3e; /* Red */
+  color: white;
+}
+
+.custom-toast-info {
+  background-color: #3182ce; /* Blue */
+  color: white;
+}
+
+.custom-toast-warning {
+  background-color: #dd6b20; /* Yellow */
+  color: white;
+}
+
+.custom-toast-default {
+  background-color: #2d3748; /* Gray */
+  color: white;
+}
